@@ -13,11 +13,17 @@ let generarTablaVirtual =(numero)=>{
 let tamanoTabla = 10;
 let tablaV = generarTablaVirtual(tamanoTabla);
 let victoria = false;
+//funcion para obtener los bordes de una pocision centrar x,y
+//por mejorar la eficiencia de la funcion
 let recorrerNumero=(posicionX,posicionY,numero)=>{
 			var arrayBorde = [];
+			//variable que empieza en -2 para obtener el eje x
 			var n1 = -2;
+			//variable que empieza en -2 para obtener el eje y
 			var n2 = -2;
+			//variables que representan el eje x and y finales
 			var a , b;
+			
 			for(i = 0; i < 3;i++){
 				n1 = n1 + 1;
 				a = posicionX + n1;
@@ -44,23 +50,33 @@ let Mina = {
 	numeroGenerado : undefined,
 	arrayBorde : undefined,
 	arrayMinas : undefined,
+	//funcion que cuenta las minas existentes
 	contarMinas : ()=>{
 		let arrayMinas =[];
+		//for para recorrer el array de coordenadas del borde
 		for(minas of Mina.arrayBorde){
+			//si hay una mina, se lo agrega al arrayMinas
 			if(tablaV[minas[0]][minas[1]] == "*"){
 				arrayMinas.push([minas[0],minas[1]]);
 			};
 		};
+		//se retorna el array de coordenadas donde estan las minas
 		return arrayMinas;
+
 	},
+	//funcion que retornar un array de coordenadas de las cajas vacias
 	 diferenciarVacios :()=>{
+	 	//inicializo un array
 		let arrayVacios =[];
+		//for para recorrer los bordes obtenidos segun una coordenada central
 		for(borde of Mina.arrayBorde){
+			//si la caja contiene una x, se entiende que esta vacio
 			if(tablaV[borde[0]][borde[1]] == "x" )
 			 {
 				arrayVacios.push([borde[0],borde[1]]);
 			 }
 		};
+		//retorna el array de coordenadas con espacios vacios
 		return arrayVacios;
 	},
 	//funcion que inserta las minas de acuerdo al numero generado aleatoriamente
