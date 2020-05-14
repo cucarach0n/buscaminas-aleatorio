@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	table td {
+  		text-align: center;
+	}
+	table{
+    	table-layout: fixed;
+    	width: 400px;
+    	height: 400px
+	}
+	th, td {
+    	border: 1px solid blue;
+    	width: 25px;
+    	height: 25px;
+    	word-wrap: break-word;
+    	white-space: nowrap;
+	}
+</style>
+<script src="app2.js"></script>
+	<title></title>
+	<style type="text/css">
+		.container{
+			text-align: center;
+		}
+		.left{
+			text-align: left;
+		}
+		.right{
+			text-align: right;	
+		}
+		.center{
+			text-align: center;
+		}
+
+	</style>
+</head>
+
+<body>
+		<div class="container">
+			<h1 hidden="true" id="lblpierde" style="position: absolute;top: 50%;left: 44%;">Game Over 
+    		</h1>
+			<input class="left" type="button" value="0" id="btnMinas">
+			<input class="center" type="button" value="Again" onclick="nuevaPartida();" id="btnAgain"/>
+			<input class="right" type="button" value="Mina" id="btnEstado" onclick="changeBandera(this)" id="btnBanderas">
+			<table style="margin: 0 auto;" class="center" id="tblPanel" border="1" id="tabla">
+		<div>
+</table>
+</body>
+</html>
